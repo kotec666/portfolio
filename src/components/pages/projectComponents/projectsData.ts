@@ -7,7 +7,7 @@ export const projectsData = [
 		projectRole: "commercial",
 		projectDescription:"\"Quartzwerke Russia\" - это крупная компания, занимающаяся производством и продажей цветного и белого кварцевого песка оптом и в розницу. На момент написания этого текста компания имеет 4 крупных предприятия в России.",
 		href_url:"https://dev.qw-russia.ru/",
-		img_src:"url('/images/qwr.png')"
+		img_src:"url('./images/qwr.png')"
 	},
 	{
 		id: 2,
