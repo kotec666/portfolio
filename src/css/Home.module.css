@@ -1,0 +1,207 @@
+
+
+.typing_1 {
+    width: 9ch;
+    animation: typing_1 1100ms steps(16);
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@keyframes typing_1 {
+    0% {
+        width: 0;
+        border-right: 3px solid;
+    }
+    90% {
+        border-right: 3px solid;
+    }
+    100% {
+        border-right: 0;
+    }
+}
+
+.typing_2 {
+    visibility: hidden;
+    width: 9.3ch;
+    animation: typing_2 1100ms steps(16), blink .5s step-end infinite alternate;
+    animation-fill-mode: forwards;
+    animation-delay: 1100ms;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+}
+
+
+
+@keyframes typing_2 {
+    0% {
+        width: 0;
+    }
+    100% {
+        visibility: initial;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent
+    }
+}
+
+.button_left {
+    position: absolute;
+    visibility: hidden;
+    left: 0;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    animation: left_visible 1100ms;
+    animation-delay: 1800ms;
+    animation-fill-mode: forwards;
+}
+
+.button_right {
+    position: absolute;
+    visibility: hidden;
+    right: 0;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    animation: right_visible 1100ms;
+    animation-delay: 1800ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes left_visible {
+    100% {
+        left: 35%;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@keyframes right_visible {
+    100% {
+        right: 35%;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .button_left {
+        left: 50%;
+    }
+    .button_right {
+        right: 50%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .button_left {
+        left: auto;
+    }
+    .button_right {
+        right: auto;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .button_left {
+        left: 0;
+        transform: translateX(-50%);
+    }
+    .button_right {
+        right: 0;
+        transform: translateX(50%);
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .button_left {
+        transform: translateX(-50%);
+    }
+    .button_right {
+        transform: translateX(50%);
+    }
+}
+
+
+@media screen and (max-width: 350px) {
+    .button_left {
+        transform: translateX(-100%);
+    }
+    .button_right {
+        transform: translateX(100%);
+    }
+}
+
+
+
+
+.head_block {
+    /*background: radial-gradient(circle, transparent 20%, #000000 20%, #000000 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #000000 20%, #000000 80%, transparent 80%, transparent) 30px 30px, linear-gradient(#3d3d3d 2.4px, transparent 2.4px) 0 -1.2px, linear-gradient(90deg, #3d3d3d 2.4px, #000000 2.4px) -1.2px 0, #000000;*/
+    /*background-size: 60px 60px, 60px 60px, 30px 30px, 30px 30px;*/
+    /*&::before {*/
+    /*    content: '';*/
+    /*    position: absolute;*/
+    /*    top: 0;*/
+    /*    left: 0;*/
+    /*    bottom: 0;*/
+    /*    right: 0;*/
+    /*    background: radial-gradient(circle, transparent 20%, #000000 20%, #000000 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #000000 20%, #000000 80%, transparent 80%, transparent) 30px 30px, linear-gradient(#ffffff 2.4px, transparent 2.4px) 0 -1.2px, linear-gradient(90deg, #ffffff 2.4px, #000000 2.4px) -1.2px 0, #000000;*/
+    /*    background-size: 60px 60px, 60px 60px, 30px 30px, 30px 30px;*/
+    /*    -webkit-mask: radial-gradient(*/
+    /*            15vw at var(--mouse-x) var(--mouse-y),*/
+    /*            red,*/
+    /*            transparent*/
+    /*    );*/
+    /*    mask: radial-gradient(*/
+    /*            15vw at var(--mouse-x) var(--mouse-y),*/
+    /*            red,*/
+    /*            transparent 20%*/
+    /*    );*/
+    /*}*/
+
+
+
+
+    background-color: #000000;
+    background: radial-gradient(
+            circle,
+            transparent 20%,
+            #000000 20%,
+            #000000 80%,
+            transparent 80%,
+            transparent
+    ),
+    radial-gradient(
+            circle,
+            transparent 20%,
+            #000000 20%,
+            #000000 80%,
+            transparent 80%,
+            transparent
+    ) 27.5px 27.5px,
+    linear-gradient(
+            #3d3d3d 2.2px,
+            transparent 2.2px
+    ) 0 -1.1px,
+    linear-gradient(90deg,
+            #3d3d3d 2.2px,
+            #000000 2.2px)
+    -1.1px 0;
+    background-size: 55px 55px, 55px 55px, 27.48px 27.48px, 27.48px 27.48px;
+    background-attachment: fixed;
+    animation: moveBg 2s linear infinite;
+}
+
+@keyframes moveBg {
+    0% {
+        background-position: initial;
+    }
+    100% {
+        background-position: 55px 55px;
+    }
+}
+
