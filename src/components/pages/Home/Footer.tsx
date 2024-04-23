@@ -234,7 +234,7 @@ const Footer = () => {
                                target="_blank"
                                className="text-[16px] font-spaceMono font-medium cursor-pointer smmaxw:text-[13px]">
                                 <div className="max-w-[18px] max-h-[18px]">
-                                    <Image width={12} height={12} className="w-full h-full" src="/svgs/github.svg"
+                                    <Image width={12} height={12} className="w-full h-full" src="/portfolio/svgs/github.svg"
                                            alt="github"
                                            title="github"
                                     />
