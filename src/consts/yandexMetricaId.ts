@@ -1,0 +1,1 @@
+export const yandexMetricaId = 95329892

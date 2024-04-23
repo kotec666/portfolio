@@ -1,7 +1,6 @@
 "use client"
 import { stagger, useAnimate, animate } from "framer-motion";
-// import {sendMetrik} from "../../../utils/metriks";
-import {useMetrica} from "@/hooks/useMetrica";
+import {yandexMetricaId} from "@/consts/yandexMetricaId";
 
 const randomNumberBetween = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -13,10 +12,9 @@ const SparkledButton = ({ text, className}: { text: string, className: string}) 
     const [scope, animate] = useAnimate()
     const sparklesCount = 5
 
-    const { reachGoal } = useMetrica()
     const onButtonClick = () => {
-        reachGoal('ExpandProjectClicked')
-        //sendMetrik('reachGoal', 'NavButtonClicked')
+        // @ts-ignore
+        ym?.(yandexMetricaId,'reachGoal','NavButtonClicked')
         const sparkles = Array.from({ length: sparklesCount });
         const sparklesAnimation: AnimationSequence = sparkles.map((_, index) => [
             `.sparkle-${index}`,

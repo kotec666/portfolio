@@ -1,11 +1,10 @@
 "use client"
 import React from 'react';
 import classNames from "classnames";
-import {AnimatePresence, motion, MotionConfig} from "framer-motion";
+import {motion, MotionConfig} from "framer-motion";
 import ResizablePanel from "../../ui/ResiziblePanel";
 import { IItem } from "../Home/ProjectsBlock";
-// import {sendMetrik} from "../../../utils/metriks";
-import {useMetrica} from "@/hooks/useMetrica";
+import {yandexMetricaId} from "@/consts/yandexMetricaId";
 
 type Props = {
     item: IItem
@@ -19,11 +18,10 @@ const duration = 0.4
 
 const ProjectCard = (props: Props) => {
 
-    const { reachGoal } = useMetrica()
 
     const handleClickExpand = (item: IItem) => {
-        reachGoal('ExpandProjectClicked')
-        // sendMetrik('reachGoal', 'ExpandProjectClicked')
+        // @ts-ignore
+        ym?.(yandexMetricaId,'reachGoal','ExpandProjectClicked')
         const alreadyExist = props.expanded?.id === item.id;
         if (alreadyExist) {
             return props.setExpanded(() => {

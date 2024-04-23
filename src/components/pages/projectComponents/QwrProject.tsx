@@ -95,7 +95,7 @@ const QwrProject = () => {
                 </div>
                 <div className="flex justify-end items-center mt-[35px] smmaxw:mt-[10px]">
                     <div className="mdmaxw:w-full">
-                        <a href="https://dev.qw-russia.ru/" rel="noopener noreferrer" target="_blank" className="flex justify-center items-center rounded-[10px] bg-[#1A131C] mdmaxw:px-[18px] mdmaxw:py-[12px] px-[24px] py-[18px] font-medium text-base mdmaxw:text-sm">
+                        <a href="https://qw-russia.ru/" rel="noopener noreferrer" target="_blank" className="flex justify-center items-center rounded-[10px] bg-[#1A131C] mdmaxw:px-[18px] mdmaxw:py-[12px] px-[24px] py-[18px] font-medium text-base mdmaxw:text-sm">
                             Перейти на страницу проекта
                         </a>
                     </div>

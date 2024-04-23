@@ -5,9 +5,8 @@ import {Element} from "react-scroll";
 import {OrbitControls, PerspectiveCamera} from "@react-three/drei";
 import {Canvas} from "@react-three/fiber";
 import Capybara from "./../../models/Capybara"
-// import {sendMetrik} from "@/utils/metriks";
-import {useMetrica} from "@/hooks/useMetrica";
 import Image from "next/image";
+import {yandexMetricaId} from "@/consts/yandexMetricaId";
 
 const initial = {
     isFirstEmailCopied: false,
@@ -18,7 +17,6 @@ const Footer = () => {
     const isInView = useInView(ref, { once: false });
     const [data, setData] = useState(initial)
 
-    const { reachGoal } = useMetrica()
 
     const updateData = (name:string, value:boolean) => {
         setData({...data, [name]: value})
@@ -63,14 +61,19 @@ const Footer = () => {
 
 
     const telegramClick = () => {
-        reachGoal('TelegramButtonClicked')
-        // sendMetrik('reachGoal', 'TelegramButtonClicked')
+        // @ts-ignore
+        ym?.(yandexMetricaId,'reachGoal','TelegramButtonClicked')
+    }
+
+    const githubClick = () => {
+        // @ts-ignore
+        ym?.(yandexMetricaId,'reachGoal','GithubClickButtonClicked')
     }
 
     const emailClick = async (id: number) => {
         await navigator?.clipboard?.writeText("alexkotov639@gmail.com")
-        reachGoal('EmailButtonClicked')
-        // sendMetrik('reachGoal', 'EmailButtonClicked')
+        // @ts-ignore
+        ym?.(yandexMetricaId,'reachGoal','EmailButtonClicked')
         if (id === 1) {
             updateData("isFirstEmailCopied", true)
         }
@@ -112,7 +115,7 @@ const Footer = () => {
                             className="min-w-[110px] max-w-[130px] rounded-[10px] p-[15px] flex flex-col gap-y-[15px]"
                         >
                             <span className="text-[14px] font-spaceMono font-medium smmaxw:text-[10px]">Проекты</span>
-                            <a href="https://dev.qw-russia.ru/" rel="noopener noreferrer" target="_blank" className="text-[14px] font-spaceMono font-medium cursor-pointer smmaxw:text-[13px]">
+                            <a href="https://qw-russia.ru/" rel="noopener noreferrer" target="_blank" className="text-[14px] font-spaceMono font-medium cursor-pointer smmaxw:text-[13px]">
                                 QW
                             </a>
                             <a href="https://bankir.kg/" rel="noopener noreferrer" target="_blank" className="text-[14px] font-spaceMono font-medium cursor-pointer smmaxw:text-[13px]">
@@ -191,31 +194,49 @@ const Footer = () => {
                                      <Image width={12} height={12} className="w-full h-full" src="/svgs/copyright.svg"  alt="copyright"/>
                                 </div>
                                 <div>
-                                    {new Date().getFullYear()} kotec666
+                                    {new Date().getFullYear()} kotec
                                 </div>
                             </span>
                         </div>
                         <div className="flex gap-x-[10px] smmaxw:text-[13px]">
-                            <a onClick={() => emailClick(2)} href="mailto:alexkotov@gmail.com" className="text-[16px] font-spaceMono font-medium cursor-pointer smmaxw:text-[13px]">
+                            <a onClick={() => emailClick(2)} href="mailto:alexkotov@gmail.com"
+                               className="text-[16px] font-spaceMono font-medium cursor-pointer smmaxw:text-[13px]">
                                 <div className="max-w-[18px] max-h-[18px] relative">
-                                    <Image width={12} height={12} className="w-full h-full" src="/svgs/email.svg" alt="email"/>
-                                            <motion.div
-                                                className="absolute top-[25px] left-[-50px] min-w-[150px] right-0 bg-[#1A131C] rounded-[5px] py-[5px] px-[25px] whitespace-nowrap "
-                                                variants={hiddenVariantsEmail}
-                                                initial="hidden"
-                                                animate={data?.isSecondEmailCopied ?  "hidden" : "visible"}
-                                                exit="hidden"
-                                            >
-                                                <div className="flex items-center gap-x-[5px]">
-                                                    <span className="text-[10px] font-spaceMono">Почта скопирована</span>
-                                                    <Image width={12} height={12} className="w-full h-full max-w-[12px] max-h-[12px]" src="/svgs/check.svg" alt="check"/>
-                                                </div>
-                                            </motion.div>
+                                    <Image width={12} height={12} className="w-full h-full" src="/svgs/email.svg"
+                                           alt="email" title="email"/>
+                                    <motion.div
+                                        className="absolute top-[25px] left-[-50px] min-w-[150px] right-0 bg-[#1A131C] rounded-[5px] py-[5px] px-[25px] whitespace-nowrap "
+                                        variants={hiddenVariantsEmail}
+                                        initial="hidden"
+                                        animate={data?.isSecondEmailCopied ? "hidden" : "visible"}
+                                        exit="hidden"
+                                    >
+                                        <div className="flex items-center gap-x-[5px]">
+                                            <span className="text-[10px] font-spaceMono">Почта скопирована</span>
+                                            <Image width={12} height={12}
+                                                   className="w-full h-full max-w-[12px] max-h-[12px]"
+                                                   src="/svgs/check.svg" alt="check"/>
+                                        </div>
+                                    </motion.div>
                                 </div>
                             </a>
-                            <a onClick={telegramClick} href="https://t.me/imkotec" rel="noopener noreferrer" target="_blank" className="text-[16px] font-spaceMono font-medium cursor-pointer smmaxw:text-[13px]">
+                            <a onClick={telegramClick} href="https://t.me/imkotec" rel="noopener noreferrer"
+                               target="_blank"
+                               className="text-[16px] font-spaceMono font-medium cursor-pointer smmaxw:text-[13px]">
                                 <div className="max-w-[18px] max-h-[18px]">
-                                    <Image width={12} height={12} className="w-full h-full" src="/svgs/tg.svg" alt="tg"/>
+                                    <Image width={12} height={12} className="w-full h-full" src="/svgs/tg.svg"
+                                           alt="tg" title="tg"
+                                    />
+                                </div>
+                            </a>
+                            <a onClick={githubClick} href="https://github.com/kotec666" rel="noopener noreferrer"
+                               target="_blank"
+                               className="text-[16px] font-spaceMono font-medium cursor-pointer smmaxw:text-[13px]">
+                                <div className="max-w-[18px] max-h-[18px]">
+                                    <Image width={12} height={12} className="w-full h-full" src="/svgs/github.svg"
+                                           alt="github"
+                                           title="github"
+                                    />
                                 </div>
                             </a>
                         </div>
