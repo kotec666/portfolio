@@ -61,6 +61,7 @@ const Footer = () => {
 
 
     const telegramClick = () => {
+
         // @ts-ignore
         ym?.(yandexMetricaId,'reachGoal','TelegramButtonClicked')
     }
