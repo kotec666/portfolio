@@ -18,7 +18,6 @@ const duration = 0.4
 
 const ProjectCard = (props: Props) => {
 
-
     const handleClickExpand = (item: IItem) => {
         // @ts-ignore
         ym?.(yandexMetricaId,'reachGoal','ExpandProjectClicked')

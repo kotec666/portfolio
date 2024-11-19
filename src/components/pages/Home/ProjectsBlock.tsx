@@ -4,6 +4,7 @@ import ProjectCard from "../projectComponents/ProjectCard";
 import { Element } from "react-scroll"
 import ProjectTemplate from "@/components/pages/projectComponents/ProjectTemplate"
 import { projectsData } from "@/components/pages/projectComponents/projectsData"
+import {DEVELOPER_ROLE, PROJECT_ROLE, PROJECT_STATUS} from "@/types/enums";
 
 export interface IItem {
   src: string;
@@ -12,10 +13,11 @@ export interface IItem {
   id: number;
   projectName: string;
   stack: string[];
-  myRole: string;
-  projectRole: string;
+  myRole: DEVELOPER_ROLE;
+  projectRole: PROJECT_ROLE;
+  projectStatus: PROJECT_STATUS;
   projectDescription: string;
-  href_url: string;
+  href_url?: string;
   img_src: string;
 }
 const ProjectsBlock = () => {

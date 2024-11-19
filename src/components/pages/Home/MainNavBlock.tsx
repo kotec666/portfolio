@@ -10,7 +10,7 @@ const MainNavBlock = () => {
         <>
         <div className={classNames("w-full h-[101vh] smmaxw:h-[138vh] flex justify-center items-center flex-col", styles.head_block)}>
                 <div className="flex flex-col justify-center items-center smmaxw:mt-[-38vh]">
-                    <h1 className={classNames("md:text-[130px] sm:text-[64px] smmaxw:text-[32px] font-chey", styles.typing_1)}>FULLSTACK</h1>
+                    <h1 className={classNames("md:text-[130px] sm:text-[64px] smmaxw:text-[32px] font-chey", styles.typing_1)}>FRONTEND</h1>
                     <h1 className={classNames("md:text-[130px] sm:text-[64px] smmaxw:text-[32px] font-chey", styles.typing_2)}>DEVELOPER</h1>
                 </div>
                 <div className="flex gap-[20px] mt-[60px] font-bold ">

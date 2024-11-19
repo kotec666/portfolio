@@ -30,11 +30,11 @@ const Home = () => {
       <>
               <HeaderDynamic/>
               <MainNavBlock/>
-              <div className="bg-[#0C090D]">
-                  <Container>
-                     <WelcomeBlockDynamic/>
-                  </Container>
-              </div>
+              {/*<div className="bg-[#0C090D]">*/}
+              {/*    <Container>*/}
+              {/*       <WelcomeBlockDynamic/>*/}
+              {/*    </Container>*/}
+              {/*</div>*/}
               <Container>
                   <SkillsBlock/>
               </Container>
